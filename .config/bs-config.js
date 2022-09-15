@@ -8,4 +8,7 @@ module.exports = {
   "files": './dist/**/*',
   "watch": true,
   "server": "dist",
+  "https": true,
+  "reloadDelay": 250,
+  // "proxy": "test.local"
 }
