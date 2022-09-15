@@ -1,0 +1,8 @@
+@use "../setting" as *;
+
+body,
+html {
+  font-family: $baseFontFamily;
+  font-size: 62.5%;
+  background-color: teal;
+}
