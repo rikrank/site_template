@@ -23,7 +23,7 @@
     "svgsprite": "svg-sprite -C .config/svgconfig.json —shape-transform-svgo .config/svgo.json src/assets/icon/*svg",
     "imagemin": "node .config/imagemin.mjs",
     "imagemin:build": "npm-run-all -s imagemin svgsprite",
-    "imagemin:w": "onchange src/assets/img/ --exclude 'src/assets/img/svg' -- npm-run-all -s clean:img imagemin",
+    "imagemin:w": "onchange src/assets/img/ -- npm-run-all -s clean:img imagemin svgsprite",
     "pug": "pug src/pug/ --pretty --out dist/",
     "pug:w": "onchange ./src/pug/ -- npm-run-all -s clean:html pug",
     "sass:watch": "sass ./src/assets/scss:dist/assets/css/ --watch",
