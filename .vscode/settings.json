@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.configFile": "../.config/.stylelintrc.json",
+  "stylelint.autoFixOnSave": true
+}

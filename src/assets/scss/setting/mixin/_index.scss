@@ -86,12 +86,10 @@ $breakpoints: (
 // ex) @include form_reset;
 // --------------------------------------------------
 @mixin form_reset {
-  outline: none;
+  background: none;
   border: none;
   border-radius: 0;
-  background: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  outline: none;
   appearance: none;
 }
 
@@ -104,21 +102,21 @@ $breakpoints: (
     color: $color;
   }
 
-  &::-webkit-input-placeholder {
+  &::input-placeholder {
     color: $color;
   }
 
-  &:-moz-placeholder {
-    color: $color;
-    opacity: 1;
-  }
-
-  &::-moz-placeholder {
+  &:placeholder {
     color: $color;
     opacity: 1;
   }
 
-  &:-ms-input-placeholder {
+  &::placeholder {
+    color: $color;
+    opacity: 1;
+  }
+
+  &:input-placeholder {
     color: $color;
   }
 }
@@ -170,8 +168,8 @@ $pathImg: "/assets/img/" !default;
 @mixin background-image($fileName) {
   // ↓ フォルダまでのパス + 画像名 でパスの記載を省略
   background-image: url($pathImg + $fileName);
-  background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 // Triangle Icon 三角形
@@ -186,16 +184,16 @@ $pathImg: "/assets/img/" !default;
   height: 0;
   border-style: solid;
 
-  @if ($direction == top) {
+  @if $direction == top {
     border-width: 0 $valWidth $height $valWidth;
     border-color: transparent transparent $color transparent;
-  } @else if ($direction == left) {
+  } @else if $direction == left {
     border-width: $valHeight $width $valHeight 0;
     border-color: transparent $color transparent transparent;
-  } @else if ($direction == right) {
+  } @else if $direction == right {
     border-width: $valHeight 0 $valHeight $width;
     border-color: transparent transparent transparent $color;
-  } @else if ($direction == bottom) {
+  } @else if $direction == bottom {
     border-width: $height $valWidth 0 $valWidth;
     border-color: $color transparent transparent transparent;
   }
@@ -211,16 +209,16 @@ $pathImg: "/assets/img/" !default;
   height: $height;
   border: $border solid;
 
-  @if ($direction == top) {
+  @if $direction == top {
     border-color: $color $color transparent transparent;
     transform: rotate(-45deg);
-  } @else if ($direction == left) {
+  } @else if $direction == left {
     border-color: transparent transparent $color $color;
     transform: rotate(45deg);
-  } @else if ($direction == right) {
+  } @else if $direction == right {
     border-color: $color $color transparent transparent;
     transform: rotate(45deg);
-  } @else if ($direction == bottom) {
+  } @else if $direction == bottom {
     border-color: transparent transparent $color $color;
     transform: rotate(-45deg);
   }
@@ -251,22 +249,15 @@ $z-map: (header, nav, navbtn);
 // ----------------------------------
 @function strip-unit($value) {
   @return math.div($value, $value * 0 + 1);
+
   // @return $value / ($value * 0 + 1);
 }
 
-@mixin vs(
-  $property,
-  $min-vp,
-  $min-length,
-  $max-vp,
-  $max-length,
-  $vp-unit: "vw"
-) {
+@mixin vs($property, $min-vp, $min-length, $max-vp, $max-length, $vp-unit: "vw") {
   $u1: unit($min-vp);
   $u2: unit($min-length);
   $u3: unit($max-vp);
   $u4: unit($max-length);
-
   $a: strip-unit($min-vp);
   $b: strip-unit($min-length);
   $c: strip-unit($max-vp);
@@ -301,10 +292,10 @@ $z-map: (header, nav, navbtn);
 @mixin alpha($opacity: 0.7) {
   &:hover,
   &:focus {
+    filter: "alpha(opacity=#{$opacity * 100})";
+    filter: alpha(opacity=#{$opacity * 100});
     -moz-opacity: $opacity;
     opacity: $opacity;
-    -ms-filter: "alpha(opacity=#{$opacity * 100})";
-    filter: alpha(opacity=#{$opacity * 100});
   }
 }
 
@@ -323,9 +314,9 @@ $z-map: (header, nav, navbtn);
 // --------------------------------------------------
 @mixin cf {
   &::after {
-    content: "";
-    clear: both;
     display: block;
+    clear: both;
+    content: "";
   }
 }
 
@@ -338,26 +329,15 @@ $z-map: (header, nav, navbtn);
 
   // 縦方向
   @if $orientation==ttob {
-    background: -webkit-linear-gradient(
-      top,
-      #{$startColor} 0%,
-      #{$endColor} 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      #{$startColor} 0%,
-      #{$endColor} 100%
-    );
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$startColor}', endColorstr=' #{$endColor}', GradientType=0);
+    background: linear-gradient(top, #{$startColor} 0%, #{$endColor} 100%);
+    background: linear-gradient(to bottom, #{$startColor} 0%, #{$endColor} 100%);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$startColor}", endColorstr=" #{$endColor}", GradientType=0);
   }
+
   // 横方向
   @else if $orientation==ltor {
-    background: -webkit-linear-gradient(
-      right,
-      #{$startColor} 0%,
-      #{$endColor} 100%
-    );
+    background: linear-gradient(right, #{$startColor} 0%, #{$endColor} 100%);
     background: linear-gradient(to right, #{$startColor} 0%, #{$endColor} 100%);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#{$startColor}', endColorstr=' #{$endColor}', GradientType=1);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr="#{$startColor}", endColorstr=" #{$endColor}", GradientType=1);
   }
 }
