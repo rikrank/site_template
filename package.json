@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "copy": "cpx './src/**/*.{css,js,pdf}' './dist'",
-    "stylelint": "stylelint ./src/**/*.scss --config .config/.stylelintrc.json",
-    "stylelint:fix": "stylelint --fix ./src/**/*.scss --config .config/.stylelintrc.json",
-    "format": "prettier --write --plugin-search-dir=. 'src/**/*.{js,ts,tsx}' --config .config/.prettierrc",
+    "stylelint": "stylelint ./src/**/*.scss",
+    "stylelint:fix": "stylelint --fix ./src/**/*.scss",
+    "format": "prettier --write --plugin-search-dir=. 'src/**/*.{html,js,ts,tsx}' --config .config/.prettierrc",
     "postCss": "postcss ./dist/**/*.css --replace ./dist/**/*.css --config .config/.postcssrc.js",
     "postCss:watch": "postcss ./dist/**/*.css --base ./dist/ --dir ./dist/ --watch --config .config/.postcssrc.js",
     "sass:watch": "sass ./src/assets/scss:dist/assets/css/ --watch",
