@@ -1,7 +1,15 @@
 @use "../setting" as *;
 
+:root {
+  --base-text-font-family: #{$baseFontFamily};
+  --base-text-font-size-sp: #{$baseFontSizeSP};
+  --base-text-font-size-pc: #{$baseFontSizePC};
+  --base-text-color: #{$textColorBase};
+  --base-text-color-light: #{$textColorLighter};
+  --base-text-color-darken: #{$textColorDarken};
+}
+
 body,
 html {
-  font-family: $baseFontFamily;
   font-size: 62.5%;
 }

@@ -12,13 +12,16 @@ $cntWidth: 1200px !default;
 // Font Variable フォント変数
 // ex) font-size: $baseFontSize;
 // --------------------------------------------------
-$baseFontSize: 10px !default;
-$baseFontFamily: "Noto Sans JP", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif !default;
+$baseFontSizePC: 16px !default;
+$baseFontSizeSP: 14px !default;
+$baseFontFamily: "Helvetica Neue", arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", meiryo, sans-serif !default;
 
 // Color Variable カラー変数
 // ex) color: $baseColor;
 // --------------------------------------------------
-$baseColor: #444 !default;
+$textColorBase: #333 !default;
+$textColorLighter: #999 !default;
+$textColorDarken: #0a0a0a !default;
 $blurColor: #999 !default;
 $mainColor: #fccf00 !default;
 $subColor: #000 !default;
