@@ -36,8 +36,17 @@
 // ========================================
 @use "./lib/swiper";
 
-// body {
-//   display: block;
-//   width: calc(10px + 20px);
-//   color: red; //reihf
-// }
+body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: calc(10px + 20px);
+  color: red; //reihfs
+  content: "";
+  transform: translateY(-50%) translateX(-50%);
+}
+
+p {
+  color: red;
+}

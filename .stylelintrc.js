@@ -24,7 +24,8 @@ module.exports = {
     "no-empty-source": null, // ソースコードのないファイルを許容する
     "scss/double-slash-comment-whitespace-inside": null, // commentsの後//の空白を要求または禁止する
     "selector-pseudo-element-colon-notation": "double", // 擬似要素の後につくコロンを「ダブルクォーテーション」だけに制限する
-    "string-quotes": "double" // ダブルクォーテーションに絞る
+    "string-quotes": "double", // ダブルクォーテーションに絞る
+    "prettier/prettier": true
   },
   ignoreFiles: ["**/*.html", "**/*.css", "**/*.js"]
 }
